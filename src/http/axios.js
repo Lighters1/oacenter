@@ -1,7 +1,9 @@
 import Axios from 'axios';
+import Vue from "vue";
+
 
 Axios.defaults.timeout = 5000;
-Axios.defaults.baseURL = 'http://localhost:8096'
+Axios.defaults.baseURL = 'http://localhost:9645'
 
 //http request 拦截器
 Axios.interceptors.request.use(config => {
@@ -13,18 +15,21 @@ Axios.interceptors.request.use(config => {
 
 //http response 拦截器
 Axios.interceptors.response.use(response => {
+        //网络情况
         if(response.status == 200){
-            //主要是想过滤掉第一层，减少代码量
+            //拦截返回的错误信息
+            if(response.data.code == 555){
+                Vue.prototype.$message.error(response.data.msg);
+                return false;
+            }
             return response.data;
         }else {
-            return {
-                code:555,
-                msg:"网络链接失败"
-            }
+            Vue.prototype.$message.error("服务器错误");
+            return false;
         }
-
     }, error => {
-        return error;
+        Vue.prototype.$message.error(error.message);
+        return false;
     }
 )
 
