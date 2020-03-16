@@ -1,0 +1,111 @@
+html,body{
+    height: 100%;
+    background: #f8f8f8;
+    overflow: hidden;
+}
+#app{
+    height: 100%;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*内边距*/
+.fm-ud-pads{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.fm-ud-padm{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fm-ud-padl{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.fm-lr-pads{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.fm-lr-padm{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.fm-lr-padl{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*外边距*/
+.fm-ud-mrgs{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.fm-ud-mrgm{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.fm-ud-mrgl{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.fm-lr-mrgs{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.fm-lr-mrgm{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fm-lr-mrgl{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+/*文字超出省略号*/
+.fm-text-eclipse{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*必填项*/
+.fm-required:after{
+    content:"*";
+    margin-left: 5px;
+    color: red;
+}
+/*浮动*/
+.fm-fltl{
+    float: left;
+}
+.fm-fltr{
+    float: right;
+}
+/*文字颜色*/
+.fm-color-d{
+    color: #F56C6C;
+}
+.fm-color-s{
+    color: #67C23A;
+}
+/*选取的input*/
+.fm-input-mini{
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+/*layui  css重置*/
+.el-dialog__footer{
+    padding: 10px !important;
+}
+.el-dialog__body{
+    padding: 10px !important;
+    max-height: 650px;
+    overflow-y: auto;
+}
+.el-dialog__header{
+    padding: 10px !important;
+    background: #f0f0f0;
+}
+.el-dialog__headerbtn{
+    top: 10px !important;
+    right: 10px !important;
+}
