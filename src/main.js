@@ -20,8 +20,6 @@ import "./assets/common.css";
 
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUi);
-//message模块比较常用直接加到全局
-Vue.prototype.$message = ElementUi.Message;
 
 Vue.config.productionTip = false;
 //添加全局变量方便调用
