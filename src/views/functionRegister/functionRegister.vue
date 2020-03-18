@@ -41,9 +41,8 @@
                     <el-table-column label="功能代码" prop="functionCode"></el-table-column>
                     <el-table-column label="页面路径" prop="pagePath"></el-table-column>
                     <el-table-column label="功能描述" prop="functionDescribe"></el-table-column>
-                    <el-table-column label="操作" align="center" width="100">
+                    <el-table-column label="操作" align="center" width="60">
                         <template>
-                            <span class="table-operation" @click="systemOperation(3)">详情</span>
                             <span class="table-operation" @click="systemOperation(2)">编辑</span>
                         </template>
                     </el-table-column>
@@ -54,7 +53,7 @@
         <el-dialog width="40%" :visible.sync="showDialog">
             <span slot="title">
                 <span class="title-tip">当前系统:{{slideSelectList[currentSelectSystemIndex].label}}</span>
-                <span>{{dialogTitle}}</span>
+                <span>{{dialogType==1?"新增功能":"编辑功能"}}</span>
             </span>
             <div class="dialog-main">
                 <div class="dialog-main-left">
@@ -101,7 +100,7 @@
             </div>
             <span slot="footer">
                 <el-button size="mini" @click="showDialog=false">取消</el-button>
-                <el-button type="primary" size="mini" v-if="dialogType==3" @click="showDialog=false">确定</el-button>
+                <el-button type="primary" size="mini" v-if="dialogType==2">保存</el-button>
                 <el-button type="primary" size="mini" v-else>保存</el-button>
             </span>
         </el-dialog>
@@ -207,7 +206,6 @@
                     ]
                 },
                 dialogType:0,
-                dialogTitle:"",
                 showDialog:false,
                 roleRule:{
                     label:"name",
@@ -291,15 +289,6 @@
                 if(type == 1){
                     //添加按钮清空表单
                     this.$refs.dialogForm && this.$refs.dialogForm.resetFields();
-                }
-            }
-        },
-        watch:{
-            dialogType:function(newValue){
-                switch (newValue) {
-                    case 1:this.dialogTitle = "添加功能";break;
-                    case 2:this.dialogTitle = "编辑功能";break;
-                    case 3:this.dialogTitle = "功能详情";break;
                 }
             }
         },
